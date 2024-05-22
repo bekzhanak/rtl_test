@@ -1,5 +1,6 @@
 import os
 import logging
+import json
 
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
@@ -113,7 +114,7 @@ def aggregate(dt_from, dt_upto, group_type):
 
         client.close()
 
-        return str(output)
+        return str(json.dumps(output))
 
     except Exception as e:
         raise Exception("The following error occurred: ", e)
